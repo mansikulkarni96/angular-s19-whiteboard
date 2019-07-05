@@ -7,11 +7,13 @@ import { CourseServiceClient } from './services/CourseServiceClient';
 
 import { AppComponent } from './app.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
+import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseGridComponent
+    CourseGridComponent,
+    CourseViewerComponent
   ],
   imports: [
     BrowserModule,
