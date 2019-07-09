@@ -6,4 +6,9 @@ export class ModuleServiceClient{
   findAllModulesForCourse(courseId) {
     return fetch(this.HerokuURL + '/api/courses/' + courseId + '/modules').then(response => response.json());
   }
+
+  findModuleById(moduleId)
+  {
+    return fetch(this.HerokuURL + '/api/modules/' + moduleId).then(response => response.json());
+  }
 }

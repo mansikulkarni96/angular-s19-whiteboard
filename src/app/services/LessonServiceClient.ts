@@ -6,4 +6,9 @@ export class LessonServiceClient{
   findAllLessonForModule(moduleId) {
     return fetch(this.HerokuURL + '/api/modules/' + moduleId + '/lessons').then(response => response.json());
   }
+
+  findLessonById(lessonId)
+  {
+    return fetch(this.HerokuURL + '/api/lessons/' + lessonId).then(response => response.json());
+  }
 }

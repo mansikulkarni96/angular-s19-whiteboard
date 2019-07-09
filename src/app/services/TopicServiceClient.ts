@@ -6,4 +6,8 @@ export class TopicServiceClient{
   findAllTopicsForLesson(lessonId) {
     return fetch(this.HerokuURL + '/api/lessons/' + lessonId + '/topics').then(response => response.json());
   }
+
+  findTopicById(topicId) {
+    return fetch(this.HerokuURL + '/api/topics/' + topicId).then(response => response.json());
+  }
 }
