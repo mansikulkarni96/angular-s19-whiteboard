@@ -19,7 +19,7 @@ export class WidgetListComponent implements OnInit {
   loadData(params) {
     this.topicId = params['topicId'];
     if ( this.topicId !== undefined) {
-      this.widgetService.findAllWidgets().then(widgets => this.widgets = widgets);
+      this.widgetService.findAllWidgetsForTopic(this.topicId).then(widgets => this.widgets = widgets);
     }
   }
 

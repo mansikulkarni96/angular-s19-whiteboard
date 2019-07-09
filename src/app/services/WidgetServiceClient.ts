@@ -3,7 +3,7 @@ export class WidgetServiceClient {
   findAllWidgets() {
     return fetch(this.HerokuURL + '/api/widgets').then(response => response.json());
   }
-  findAllWidgetsForLesson(topicId) {
+  findAllWidgetsForTopic(topicId) {
     return fetch(this.HerokuURL + '/api/topics/' + topicId + '/widgets').then(response => response.json());
   }
 
