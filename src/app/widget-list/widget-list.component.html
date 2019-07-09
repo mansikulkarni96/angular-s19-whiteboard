@@ -1,1 +1,44 @@
-<p>widget-list works!</p>
+<div [hidden]="!(widgets !=null && widgets.length >0)" >
+  <div *ngFor="let wid of widgets" class="border rounded border-3 p-3 mb-2">
+    <div [ngSwitch] = "wid.widType">
+      <div *ngSwitchCase = "'HEADING'">
+        <h1>Heading Widget</h1>
+        <div [ngSwitch] = "wid.size">
+          <h1 *ngSwitchCase = "'0'" >{{wid.text}}</h1>
+          <h1 *ngSwitchCase = "'1'" >{{wid.text}}</h1>
+          <h2 *ngSwitchCase = "'2'" >{{wid.text}}</h2>
+          <h3 *ngSwitchCase = "'3'" >{{wid.text}}</h3>
+          <h4 *ngSwitchCase = "'4'" >{{wid.text}}</h4>
+          <h5 *ngSwitchCase = "'5'" >{{wid.text}}</h5>
+          <h6 *ngSwitchCase = "'6'" >{{wid.text}}</h6>
+        </div>
+      </div>
+      <div *ngSwitchCase="'PARAGRAPH'">
+        <h1>Paragraph Widget</h1>
+        <h3>{{wid.title}}</h3>
+        <p>{{wid.text}}</p>
+      </div>
+      <div *ngSwitchCase="'LINK'">
+        <h1>Link Widget</h1>
+        <a href="{{wid.value}}">{{wid.text}}</a>
+      </div>
+      <div *ngSwitchCase="'IMAGE'">
+        <h1>Image Widget</h1>
+        <h2>{{wid.title}}</h2>
+        <img src="{{wid.src}}"/>
+      </div>
+      <div *ngSwitchCase="'LIST'">
+        <h1>List Widget</h1>
+        <h3>{{wid.title}}</h3>
+        <div [ngSwitch]="wid.lType">
+          <ul *ngSwitchCase="ul">
+            <li class="list-group-item" *ngFor="let text of wid.text.split('\n')">{{text}}</li>
+          </ul>
+          <ol *ngSwitchCase="'ol'">
+            <li *ngFor="let text of wid.text.split('\n')">{{text}}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

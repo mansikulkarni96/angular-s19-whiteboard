@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {WidgetServiceClient} from '../services/WidgetServiceClient';
 
 @Component({
@@ -9,10 +10,17 @@ import {WidgetServiceClient} from '../services/WidgetServiceClient';
 export class WidgetListComponent implements OnInit {
 
   widgets = [];
+  topicId;
+  constructor(private widgetService: WidgetServiceClient, private widgetRoute: ActivatedRoute) {
+    this.widgetRoute.params.subscribe(params => this.loadData(params));
 
-  constructor(private widgetService: WidgetServiceClient) {
+  }
 
-    this.widgetService.findAllWidgets().then(widgets => this.widgets = widgets);
+  loadData(params) {
+    this.topicId = params['topicId'];
+    if ( this.topicId !== undefined) {
+      this.widgetService.findAllWidgets().then(widgets => this.widgets = widgets);
+    }
   }
 
   ngOnInit() {
