@@ -1,8 +1,10 @@
 <div class="m-4">
   <ul class="nav nav-pills mb-4">
-    <li *ngFor="let topic of topics"  class="nav-item">
+    <li *ngFor="let topic of topics"  class="nav-item m-2">
       <a class="nav-link btn" [ngClass] = " topic.id == topicId ? 'btn-primary' : 'btn-secondary'" routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}">{{topic.title}}</a>
     </li>
   </ul>
   <app-widget-list></app-widget-list>
 </div>
+
+
