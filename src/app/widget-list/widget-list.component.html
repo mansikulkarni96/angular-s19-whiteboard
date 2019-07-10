@@ -31,7 +31,7 @@
         <h1>List Widget</h1>
         <h3>{{wid.title}}</h3>
         <div [ngSwitch]="wid.lType">
-          <ul *ngSwitchCase="ul">
+          <ul *ngSwitchCase="'ul'">
             <li class="list-group-item" *ngFor="let text of wid.text.split('\n')">{{text}}</li>
           </ul>
           <ol *ngSwitchCase="'ol'">
